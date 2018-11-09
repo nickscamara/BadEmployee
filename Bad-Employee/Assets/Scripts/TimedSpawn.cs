@@ -5,7 +5,12 @@ using UnityEngine;
 public class TimedSpawn : MonoBehaviour
 {
 
-    public GameObject spawnee;
+    public GameObject[] obj;
+    public GameObject obj2;
+    public GameObject obj3;
+    public GameObject obj4;
+    public GameObject obj5;
+
     public bool stopSpawning = false;
     public float spawnTime = 1f;
     public float spawnDelay = 2f;
@@ -18,8 +23,9 @@ public class TimedSpawn : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(spawnee, transform.position, transform.rotation);
-        Debug.Log(spawnee.GetComponent<Rigidbody2D>());
+        int a = Random.Range(0, 2);
+        Instantiate(obj[a], transform.position, transform.rotation);
+        Debug.Log(obj[a].GetComponent<Rigidbody2D>());
         if (stopSpawning)
         {
             CancelInvoke("SpawnObject");
