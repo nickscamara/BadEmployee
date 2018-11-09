@@ -6,10 +6,12 @@ public class Shred : MonoBehaviour {
 
     public ParticleSystem ps;
     public ParticleSystem ps2;
+    private RipplePostProcessor rp;
 
 	// Use this for initialization
 	void Start () {
-		
+
+        rp = Camera.main.GetComponent<RipplePostProcessor>();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,7 @@ public class Shred : MonoBehaviour {
         BeltMovement.move = false;
         BeltMovement.destroy = true;
         Destroy(collision.gameObject); // maybe destroy the object
+        rp.RippleEffect();
         
         ps.Play();
         ps2.Play();
