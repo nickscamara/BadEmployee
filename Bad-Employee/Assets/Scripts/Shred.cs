@@ -21,7 +21,14 @@ public class Shred : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
+        if (collision.gameObject.tag == "bonus")
+        {
+            Score.score += 2;
+            ChangeColor.Cchange();
+        }else
+        { Score.score += 1; }
+       
         Debug.Log("Touched");
         BeltMovement.move = false;
         BeltMovement.destroy = true;

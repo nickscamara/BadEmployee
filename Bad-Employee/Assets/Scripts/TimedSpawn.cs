@@ -23,7 +23,7 @@ public class TimedSpawn : MonoBehaviour
 
     public void SpawnObject()
     {
-        int a = Random.Range(0, 2);
+        int a = Random.Range(0, 3);
         Instantiate(obj[a], transform.position, transform.rotation);
         Debug.Log(obj[a].GetComponent<Rigidbody2D>());
         if (stopSpawning)

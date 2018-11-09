@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - box
+  - bonus
   layers:
   - Default
   - TransparentFX

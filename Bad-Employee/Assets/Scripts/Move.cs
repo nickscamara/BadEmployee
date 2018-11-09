@@ -81,6 +81,7 @@ public class Move : MonoBehaviour
 
     void OnMouseUp()
     {
+       
         print("up");
         curDown = false;
     }

@@ -17,7 +17,7 @@ public class BeltMovement : MonoBehaviour {
 	void Update () {
         if (move)
         {
-			
+
             obj.transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
@@ -25,15 +25,16 @@ public class BeltMovement : MonoBehaviour {
         {
             Debug.Log("diawdwad");
             move = false;
-            obj.transform.Translate(Vector3.right * 0 * Time.deltaTime);
+            //obj.transform.
         }
+        else if(move){ obj.transform.Translate(Vector3.right * speed * Time.deltaTime); }
             
         
     }
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("COllision detected");
-        if (col.gameObject.tag == "box")
+        if (col.gameObject.tag == "box" || col.gameObject.tag == "bonus")
         {
             obj = col.gameObject;
             collided = true;
