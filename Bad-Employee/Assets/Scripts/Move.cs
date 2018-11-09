@@ -1,11 +1,5 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
-using System.Collections.Generic;
-
-
-using System.Diagnostics;
 
 public class Move : MonoBehaviour
 {
@@ -17,12 +11,10 @@ public class Move : MonoBehaviour
     private bool curDown = false;
     private bool prevDown = false;
     public Rigidbody2D rigidbody2D;
-    
     static bool pressed = false;
+
     void Start()
     {
-       
-        //rigidbody2D = GetComponent<Rigidbody2D>();
         prevMousePosition = Vector3.zero;
         positionChanges = new Vector3[VECTOR_COUNT];
         prevTimes = new float[VECTOR_COUNT];
@@ -52,7 +44,7 @@ public class Move : MonoBehaviour
                 totalTime += prevTimes[i];
                 totalDistance += positionChanges[i];
             }
-            velocity = totalDistance / (totalTime * 10);
+            velocity = totalDistance / (totalTime * 10) ;
             velocity = Camera.main.ScreenToWorldPoint(velocity) - Camera.main.ScreenToWorldPoint(Vector3.zero);
             rigidbody2D.velocity = velocity;
         }
@@ -64,8 +56,21 @@ public class Move : MonoBehaviour
         prevDown = curDown;
         prevMousePosition = Input.mousePosition;
 
+        /*
+        if (!curDown) {
+            Vector2 temp = rigidbody2D.velocity;
+            if((transform.position.y > Camera.main.orthographicSize && rigidbody2D.velocity.y > 0) ||
+                (transform.position.y < -Camera.main.orthographicSize && rigidbody2D.velocity.y < 0))
+                temp.y *= -1;
+            if((transform.position.x > Camera.main.orthographicSize * Camera.main.aspect && rigidbody2D.velocity.x > 0) ||
+               (transform.position.x < -Camera.main.orthographicSize * Camera.main.aspect && rigidbody2D.velocity.x < 0))
+                temp.x *= -1;
 
-}
+            rigidbody2D.velocity = temp;
+        }
+        */
+    }
+
     void OnMouseDown()
     {
         pressed = true;
@@ -87,6 +92,8 @@ public class Move : MonoBehaviour
             return true;
         }
         return false;
-       
+
     }
+
+
 }
