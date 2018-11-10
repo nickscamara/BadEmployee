@@ -21,9 +21,18 @@ public class ChangeColor : MonoBehaviour {
         if (s.Equals("bonus"))
         {
             ps.startColor = new Color(1, 0.52f, 0, 1);
-     
-                }
-        else {
+
+        }
+        else if (s.Equals("lose"))
+        {
+            ps.startColor = new Color   ( 0.77f, 0.21f, 0.13f, 1);
+        }
+        else if (s.Equals("mystery"))
+        {
+            ps.startColor = new Color(0.49f, 0.12f , 0.65f , 1);
+        }
+        else
+        {
             ps.startColor = new Color(0.86f, 0.65f, 0.4f, 1);
         }
         

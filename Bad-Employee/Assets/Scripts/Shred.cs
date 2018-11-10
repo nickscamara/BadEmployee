@@ -26,10 +26,23 @@ public class Shred : MonoBehaviour {
         {
             Score.score += 2;
             ChangeColor.Cchange("bonus");
-        }else
+        }
+        else if (collision.gameObject.tag == "losebox")
+        {
+            Score.score += -1;
+            ChangeColor.Cchange("lose");
+        }
+        else if (collision.gameObject.tag == "mysterybox")
+        {
+            int a = Random.Range(-20, 20);
+            Score.score += a;
+            ChangeColor.Cchange("mystery");
+        }
+        else
         {
             ChangeColor.Cchange("box");
-            Score.score += 1; }
+            Score.score += 1;
+        }
        
         Debug.Log("Touched");
         BeltMovement.move = false;
