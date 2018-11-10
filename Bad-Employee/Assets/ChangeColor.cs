@@ -16,8 +16,16 @@ public class ChangeColor : MonoBehaviour {
 
         
     }
-    public static void Cchange()
+    public static void Cchange(string s)
     {
-        ps.startColor = new Color(255, 130, 0);
+        if (s.Equals("bonus"))
+        {
+            ps.startColor = new Color(1, 0.52f, 0, 1);
+     
+                }
+        else {
+            ps.startColor = new Color(0.86f, 0.65f, 0.4f, 1);
+        }
+        
     }
 }
