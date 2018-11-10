@@ -447,7 +447,7 @@ MonoBehaviour:
   obj4: {fileID: 0}
   obj5: {fileID: 0}
   stopSpawning: 0
-  spawnTime: 1
+  spawnTime: 8
   spawnDelay: 2
 --- !u!4 &345623680
 Transform:
@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 605575437}
   - component: {fileID: 605575436}
   - component: {fileID: 605575435}
+  - component: {fileID: 605575438}
   m_Layer: 0
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -1171,6 +1172,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 605575433}
   m_CullTransparentMesh: 0
+--- !u!114 &605575438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605575433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09857c154a2ea6a46aae7eaf688d7ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &615895273
 GameObject:
   m_ObjectHideFlags: 0

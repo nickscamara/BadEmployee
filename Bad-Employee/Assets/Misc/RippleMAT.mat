@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 0.0000000017932968
+    - _Amount: 0
     - _BumpScale: 1
     - _CenterX: 760
     - _CenterY: 191
