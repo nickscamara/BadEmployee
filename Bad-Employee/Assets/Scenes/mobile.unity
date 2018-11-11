@@ -9759,6 +9759,9 @@ MonoBehaviour:
   ps2: {fileID: 764171840}
   panel: {fileID: 380927238}
   bigExplosion: {fileID: 946354286}
+  points: {fileID: 1139365777}
+  pointsp: {fileID: 2118934601}
+  gj: {fileID: 1139365774}
 --- !u!61 &775032828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10487,13 +10490,14 @@ GameObject:
   - component: {fileID: 1139365778}
   - component: {fileID: 1139365777}
   - component: {fileID: 1139365776}
+  - component: {fileID: 1139365779}
   m_Layer: 0
   m_Name: points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1139365775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10650,6 +10654,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1139365774}
   m_CullTransparentMesh: 0
+--- !u!114 &1139365779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1139365774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b934b55c63614384fbd6d2141e395df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gj: {fileID: 1139365774}
 --- !u!4 &1311744107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4139898514156350, guid: d3d2dd593f84f434fb267d66bf6eae84,
@@ -16674,6 +16690,7 @@ GameObject:
   - component: {fileID: 2118934603}
   - component: {fileID: 2118934602}
   - component: {fileID: 2118934601}
+  - component: {fileID: 2118934604}
   m_Layer: 0
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -16708,7 +16725,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2118934599}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 005026812dd6f3841ba0fc5b3fa9d088, type: 2}
   m_CullingMode: 0
@@ -16841,3 +16858,15 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2118934599}
   m_CullTransparentMesh: 0
+--- !u!114 &2118934604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118934599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b934b55c63614384fbd6d2141e395df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gj: {fileID: 0}

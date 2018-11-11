@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shred : MonoBehaviour {
 
@@ -11,6 +12,19 @@ public class Shred : MonoBehaviour {
     private RipplePostProcessor rp;
     public GameObject panel;
     public ParticleSystem bigExplosion;
+
+  
+
+
+
+    //this is for the floating points
+    public TextMeshProUGUI points;
+    public Animator pointsp;
+
+    public GameObject gj;
+    
+
+     
 
 	// Use this for initialization
 	void Start () {
@@ -37,22 +51,40 @@ public class Shred : MonoBehaviour {
 
         if (collision.gameObject.tag == "bonus")
         {
+            points.text = "+2";
+            gj.SetActive(true);
+            //pointsp.Play("points");
+            points.color = new Color(1, 0.52f, 0, 1);
+            //pointsp.SetBool("points",true);
             Score.score += 2;
             ChangeColor.Cchange("bonus");
         }
         else if (collision.gameObject.tag == "losebox")
         {
+            points.text = "-1";
+            gj.SetActive(true);
+            points.color = new Color(0.77f, 0.21f, 0.13f, 1);
+            //pointsp.SetBool("points", true);
             Score.score += -1;
             ChangeColor.Cchange("lose");
         }
         else if (collision.gameObject.tag == "mysterybox")
         {
+            
+            gj.SetActive(true);
+            points.color = new Color(0.49f, 0.12f, 0.65f, 1);
+            //pointsp.SetBool("points", true);
             int a = Random.Range(2,20);
+            points.text = "+" + a;
             Score.score += a;
             ChangeColor.Cchange("mystery");
         }
         else if (collision.gameObject.tag == "bomb")
         {
+            points.text = "BOOOOM";
+            gj.SetActive(true);
+            points.color = new Color(0f, 0f, 0f, 1);
+           // pointsp.SetBool("points", true);
             ChangeColor.Cchange("bomb");
             Debug.Log("You Lost");
            
@@ -66,6 +98,10 @@ public class Shred : MonoBehaviour {
         }
         else
         {
+            points.text = "+1";
+            gj.SetActive(true);
+            points.color = new Color(0.86f, 0.65f, 0.4f, 1);
+            //pointsp.SetBool("points", true);
             ChangeColor.Cchange("box");
             Score.score += 1;
         }
@@ -80,10 +116,5 @@ public class Shred : MonoBehaviour {
         ps2.Play();
     }
 
-    public void RestartScene()
-    {
-        SceneManager.LoadScene("mobile");
-        Score.score = 0;
-        panel.SetActive(false);
-    }
+   
 }
