@@ -34,25 +34,25 @@ public class Move : MonoBehaviour
     {
         
        
-        if (!moved)
-        {
+        //if (!moved)
+       // {
             if (curDown)
             {
                 // if still down just follow the mouse (finger)
-                Vector3 v = new Vector3(1f, -0.1f, 0);
+               // Vector3 v = new Vector3(1f, -0.1f, 0);
 
                 Vector3 amountMoved = Camera.main.ScreenToWorldPoint(positionChanges[(vectorIndex - 1 + VECTOR_COUNT) % VECTOR_COUNT]) - Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
-                Debug.Log("Amount Moved: " + amountMoved);
-                if (amountMoved.x > v.x)
-                {
-                    amountMoved.x = v.x;
-                    curDown = false;
-                }
-                 else if (amountMoved.y < v.y)
-                {
-                    amountMoved.y = v.y;
-                    curDown = false;
-                }
+              //  Debug.Log("Amount Moved: " + amountMoved);
+              //  if (amountMoved.x > v.x)
+              //  {
+              //      amountMoved.x = v.x;
+              //      curDown = false;
+              //  }
+              //   else if (amountMoved.y < v.y)
+              //  {
+              //      amountMoved.y = v.y;
+              //      curDown = false;
+              //  }
 
                 transform.position = transform.position + amountMoved;
                
@@ -79,7 +79,7 @@ public class Move : MonoBehaviour
 
             prevDown = curDown;
             prevMousePosition = Input.mousePosition;
-        }
+       // }
         /*
         if (!curDown) {
             Vector2 temp = rigidbody2D.velocity;
