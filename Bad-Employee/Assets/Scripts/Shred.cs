@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Shred : MonoBehaviour {
 
     public ParticleSystem ps;
     public ParticleSystem ps2;
     private RipplePostProcessor rp;
+    public GameObject panel;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +21,16 @@ public class Shred : MonoBehaviour {
 	void Update () {
 		
 	}
+    IEnumerator MyCoroutine()
+    {
+        //This is a coroutine
+       
+
+        yield return new WaitForSeconds(8);    //Wait one frame
+
+        Score.score = 0;
+        panel.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,7 +54,15 @@ public class Shred : MonoBehaviour {
         else if (collision.gameObject.tag == "bomb")
         {
             Debug.Log("You Lost");
-            Score.score = 0;
+            panel.SetActive(true);
+
+           
+                StartCoroutine(MyCoroutine());
+            
+
+           
+
+            // Score.score = 0;
         }
         else
         {
@@ -58,4 +79,5 @@ public class Shred : MonoBehaviour {
         ps.Play();
         ps2.Play();
     }
+
 }
