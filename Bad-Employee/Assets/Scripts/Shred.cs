@@ -10,6 +10,7 @@ public class Shred : MonoBehaviour {
     public ParticleSystem ps2;
     private RipplePostProcessor rp;
     public GameObject panel;
+    public ParticleSystem bigExplosion;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +25,11 @@ public class Shred : MonoBehaviour {
     IEnumerator MyCoroutine()
     {
         //This is a coroutine
-       
-
-        yield return new WaitForSeconds(8);    //Wait one frame
-
-        Score.score = 0;
-        panel.SetActive(false);
+        yield return new WaitForSeconds(1);
+        panel.SetActive(true);
+        bigExplosion.Stop();
+            //Wait one frame
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,17 +47,17 @@ public class Shred : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "mysterybox")
         {
-            int a = Random.Range(-20, 20);
+            int a = Random.Range(2,20);
             Score.score += a;
             ChangeColor.Cchange("mystery");
         }
         else if (collision.gameObject.tag == "bomb")
         {
+            ChangeColor.Cchange("bomb");
             Debug.Log("You Lost");
-            panel.SetActive(true);
-
            
-                StartCoroutine(MyCoroutine());
+            bigExplosion.Play();
+            StartCoroutine(MyCoroutine());
             
 
            
@@ -80,4 +80,10 @@ public class Shred : MonoBehaviour {
         ps2.Play();
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("mobile");
+        Score.score = 0;
+        panel.SetActive(false);
+    }
 }
