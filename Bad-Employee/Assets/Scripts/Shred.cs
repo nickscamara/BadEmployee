@@ -38,6 +38,11 @@ public class Shred : MonoBehaviour {
             Score.score += a;
             ChangeColor.Cchange("mystery");
         }
+        else if (collision.gameObject.tag == "bomb")
+        {
+            Debug.Log("You Lost");
+            Score.score = 0;
+        }
         else
         {
             ChangeColor.Cchange("box");

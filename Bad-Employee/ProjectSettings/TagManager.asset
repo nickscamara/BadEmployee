@@ -8,6 +8,7 @@ TagManager:
   - bonus
   - losebox
   - mysterybox
+  - bomb
   layers:
   - Default
   - TransparentFX
