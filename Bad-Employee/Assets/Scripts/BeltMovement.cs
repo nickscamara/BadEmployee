@@ -20,7 +20,7 @@ public class BeltMovement : MonoBehaviour {
 
             obj.transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-
+        /**
         else if (Move.OnM() && destroy == false)
         {
             Debug.Log("diawdwad");
@@ -28,6 +28,7 @@ public class BeltMovement : MonoBehaviour {
             //obj.transform.
         }
         else if (move) { obj.transform.Translate(Vector3.right * speed * Time.deltaTime); }
+    */
 
 
     }

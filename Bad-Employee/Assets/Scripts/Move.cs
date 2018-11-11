@@ -18,8 +18,8 @@ public class Move : MonoBehaviour
     bool moved = false;
     void Start()
     {
-     //   gobj = GetComponent<GameObject>();
-      // 
+        //   gobj = GetComponent<GameObject>();
+        // 
         prevMousePosition = Vector3.zero;
         positionChanges = new Vector3[VECTOR_COUNT];
         prevTimes = new float[VECTOR_COUNT];
@@ -32,54 +32,54 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        
-       
+
+
         //if (!moved)
-       // {
-            if (curDown)
+        // {
+        if (curDown)
+        {
+            // if still down just follow the mouse (finger)
+            // Vector3 v = new Vector3(1f, -0.1f, 0);
+
+            Vector3 amountMoved = Camera.main.ScreenToWorldPoint(positionChanges[(vectorIndex - 1 + VECTOR_COUNT) % VECTOR_COUNT]) - Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+            //  Debug.Log("Amount Moved: " + amountMoved);
+            //  if (amountMoved.x > v.x)
+            //  {
+            //      amountMoved.x = v.x;
+            //      curDown = false;
+            //  }
+            //   else if (amountMoved.y < v.y)
+            //  {
+            //      amountMoved.y = v.y;
+            //      curDown = false;
+            //  }
+
+            transform.position = transform.position + amountMoved;
+
+        }
+        else if (prevDown)
+        {
+            // just came up so calculate and set velocity
+            float totalTime = 0;
+            Vector3 totalDistance = Vector3.zero;
+            Vector3 velocity;
+            for (int i = 0; i < VECTOR_COUNT; i++)
             {
-                // if still down just follow the mouse (finger)
-               // Vector3 v = new Vector3(1f, -0.1f, 0);
-
-                Vector3 amountMoved = Camera.main.ScreenToWorldPoint(positionChanges[(vectorIndex - 1 + VECTOR_COUNT) % VECTOR_COUNT]) - Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
-              //  Debug.Log("Amount Moved: " + amountMoved);
-              //  if (amountMoved.x > v.x)
-              //  {
-              //      amountMoved.x = v.x;
-              //      curDown = false;
-              //  }
-              //   else if (amountMoved.y < v.y)
-              //  {
-              //      amountMoved.y = v.y;
-              //      curDown = false;
-              //  }
-
-                transform.position = transform.position + amountMoved;
-               
+                totalTime += prevTimes[i];
+                totalDistance += positionChanges[i];
             }
-            else if (prevDown)
-            {
-                // just came up so calculate and set velocity
-                float totalTime = 0;
-                Vector3 totalDistance = Vector3.zero;
-                Vector3 velocity;
-                for (int i = 0; i < VECTOR_COUNT; i++)
-                {
-                    totalTime += prevTimes[i];
-                    totalDistance += positionChanges[i];
-                }
-                velocity = totalDistance / (totalTime * 10);
-                velocity = Camera.main.ScreenToWorldPoint(velocity) - Camera.main.ScreenToWorldPoint(Vector3.zero);
-                rigidbody2D.velocity = velocity;
-            }
+            velocity = totalDistance / (totalTime * 10);
+            velocity = Camera.main.ScreenToWorldPoint(velocity) - Camera.main.ScreenToWorldPoint(Vector3.zero);
+            rigidbody2D.velocity = velocity;
+        }
 
-            positionChanges[vectorIndex] = Input.mousePosition - prevMousePosition;
-            prevTimes[vectorIndex] = Time.deltaTime;
-            vectorIndex = (vectorIndex + 1) % VECTOR_COUNT;
+        positionChanges[vectorIndex] = Input.mousePosition - prevMousePosition;
+        prevTimes[vectorIndex] = Time.deltaTime;
+        vectorIndex = (vectorIndex + 1) % VECTOR_COUNT;
 
-            prevDown = curDown;
-            prevMousePosition = Input.mousePosition;
-       // }
+        prevDown = curDown;
+        prevMousePosition = Input.mousePosition;
+        // }
         /*
         if (!curDown) {
             Vector2 temp = rigidbody2D.velocity;
@@ -89,7 +89,6 @@ public class Move : MonoBehaviour
             if((transform.position.x > Camera.main.orthographicSize * Camera.main.aspect && rigidbody2D.velocity.x > 0) ||
                (transform.position.x < -Camera.main.orthographicSize * Camera.main.aspect && rigidbody2D.velocity.x < 0))
                 temp.x *= -1;
-
             rigidbody2D.velocity = temp;
         }
         */
@@ -109,7 +108,7 @@ public class Move : MonoBehaviour
 
     void OnMouseUp()
     {
-       
+
         print("up");
         curDown = false;
     }

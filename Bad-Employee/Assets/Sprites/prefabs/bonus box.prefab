@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61213251215889644}
   - component: {fileID: 50674036547103212}
   - component: {fileID: 114149527379479208}
+  - component: {fileID: 114086490678724616}
   m_Layer: 0
   m_Name: bonus box
   m_TagString: bonus
@@ -88,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.88, y: 3.73}
   m_EdgeRadius: 0
---- !u!114 &114149527379479208
+--- !u!114 &114086490678724616
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,10 +97,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444874936471860}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3827d67d3da4b41abff093a85b9771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggedObject: {fileID: 0}
+--- !u!114 &114149527379479208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444874936471860}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 809bee8a2f7ea674cbd4a8c39dc94210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 50674036547103212}
+  rigidbody2D: {fileID: 0}
 --- !u!212 &212676963830740428
 SpriteRenderer:
   m_ObjectHideFlags: 1

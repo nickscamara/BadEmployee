@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61664212600000238}
   - component: {fileID: 50591153035072730}
   - component: {fileID: 114244135621241970}
+  - component: {fileID: 114680985487453288}
   m_Layer: 0
   m_Name: mysterybox
   m_TagString: mysterybox
@@ -94,12 +95,24 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378724723185180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 809bee8a2f7ea674cbd4a8c39dc94210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 50591153035072730}
+  rigidbody2D: {fileID: 0}
+--- !u!114 &114680985487453288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378724723185180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3827d67d3da4b41abff093a85b9771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggedObject: {fileID: 0}
 --- !u!212 &212891953821857438
 SpriteRenderer:
   m_ObjectHideFlags: 1

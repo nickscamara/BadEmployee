@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61304126035195146}
   - component: {fileID: 50127241059853904}
   - component: {fileID: 114002589991932410}
+  - component: {fileID: 114400025994941332}
   m_Layer: 0
   m_Name: box 1 2
   m_TagString: box
@@ -94,12 +95,24 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170427367845362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 809bee8a2f7ea674cbd4a8c39dc94210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 50127241059853904}
+  rigidbody2D: {fileID: 0}
+--- !u!114 &114400025994941332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170427367845362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3827d67d3da4b41abff093a85b9771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggedObject: {fileID: 0}
 --- !u!212 &212627863672845366
 SpriteRenderer:
   m_ObjectHideFlags: 1
