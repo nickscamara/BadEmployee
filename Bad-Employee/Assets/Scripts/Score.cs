@@ -48,7 +48,9 @@ public class Score : MonoBehaviour {
             if (stop == true)
             {
                 PlayerPrefs.SetInt("Highscore", score);
+                
                 highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
+               // stop = false;
             }
         }
 
@@ -91,6 +93,8 @@ public class Score : MonoBehaviour {
         }
         if (score >= 150)
         {
+            cloud1.color = new Color(.56f, .35f, .80f);
+            cloud2.color = new Color(.56f, .35f, .80f);
             spriteR.sprite = sprite;
             s2.SetActive(true);
             TimedSpawn.spawnD(.5f);

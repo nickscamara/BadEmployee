@@ -81,6 +81,16 @@ public class Shred : MonoBehaviour {
             Score.score += a;
             ChangeColor.Cchange("mystery");
         }
+        else if (collision.gameObject.tag == "blackbox")
+        {
+            points.text = "-10";
+            gj.SetActive(true);
+            points.color = new Color(0f, 0f, 0f, 1);
+            //pointsp.SetBool("points", true);
+           
+            Score.score += -10;
+            ChangeColor.Cchange("black");
+        }
         else if (collision.gameObject.tag == "bomb")
         {
             points.text = "BOOOOM";

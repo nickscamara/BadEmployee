@@ -35,6 +35,10 @@ public class ChangeColor : MonoBehaviour {
         {
             ps.startColor = new Color(0f, 0f,0f, 1);
         }
+        else if (s.Equals("black"))
+        {
+            ps.startColor = new Color(0f, 0f, 0f, 1);
+        }
         else
         {
             ps.startColor = new Color(0.86f, 0.65f, 0.4f, 1);

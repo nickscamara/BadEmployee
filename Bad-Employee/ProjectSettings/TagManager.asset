@@ -9,6 +9,7 @@ TagManager:
   - losebox
   - mysterybox
   - bomb
+  - blackbox
   layers:
   - Default
   - TransparentFX
