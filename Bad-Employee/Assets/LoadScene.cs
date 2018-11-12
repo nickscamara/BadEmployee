@@ -11,6 +11,7 @@ public class LoadScene : MonoBehaviour {
     public void RestartScene()
     {
         SceneManager.LoadScene("mobile");
+        Score.stop = false;
         Score.score = 0;
         panel.SetActive(false);
     }

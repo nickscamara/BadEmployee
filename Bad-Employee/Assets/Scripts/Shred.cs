@@ -19,6 +19,7 @@ public class Shred : MonoBehaviour {
 
     //this is for the floating points
     public TextMeshProUGUI points;
+    public TextMeshProUGUI highscoreText;
     public Animator pointsp;
 
     public GameObject gj;
@@ -41,6 +42,7 @@ public class Shred : MonoBehaviour {
         //This is a coroutine
         yield return new WaitForSeconds(1);
         panel.SetActive(true);
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
         bigExplosion.Stop();
             //Wait one frame
         
@@ -82,6 +84,7 @@ public class Shred : MonoBehaviour {
         else if (collision.gameObject.tag == "bomb")
         {
             points.text = "BOOOOM";
+            Score.stop = true;
             gj.SetActive(true);
             points.color = new Color(0f, 0f, 0f, 1);
            // pointsp.SetBool("points", true);
