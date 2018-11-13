@@ -23,8 +23,8 @@ public class Shred : MonoBehaviour {
     public Animator pointsp;
 
     public GameObject gj;
-    
 
+    public GameObject shreder;
      
 
 	// Use this for initialization
@@ -48,85 +48,121 @@ public class Shred : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+ 
+
+    IEnumerator EffectDuration()
     {
+    
+    yield return new WaitForSeconds(10);
+        shreder.transform.localScale = new Vector3(.39f, .39f, .39f);
 
-        if (collision.gameObject.tag == "bonus")
+    }
+
+private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!Score.stop)
         {
-            points.text = "+2";
-            gj.SetActive(true);
-            //pointsp.Play("points");
-            points.color = new Color(1, 0.52f, 0, 1);
-            //pointsp.SetBool("points",true);
-            Score.score += 2;
-            ChangeColor.Cchange("bonus");
-        }
-        else if (collision.gameObject.tag == "losebox")
-        {
-            points.text = "-1";
-            gj.SetActive(true);
-            points.color = new Color(0.77f, 0.21f, 0.13f, 1);
-            //pointsp.SetBool("points", true);
-            Score.score += -1;
-            ChangeColor.Cchange("lose");
-        }
-        else if (collision.gameObject.tag == "mysterybox")
-        {
+
+            if (collision.gameObject.tag == "bonus")
+            {
+                points.text = "+2";
+                gj.SetActive(true);
+                //pointsp.Play("points");
+                points.color = new Color(1, 0.52f, 0, 1);
+                //pointsp.SetBool("points",true);
+                Score.score += 2;
+                ChangeColor.Cchange("bonus");
+            }
+            else if (collision.gameObject.tag == "losebox")
+            {
+                points.text = "-1";
+                gj.SetActive(true);
+                points.color = new Color(0.77f, 0.21f, 0.13f, 1);
+                //pointsp.SetBool("points", true);
+                Score.score += -1;
+                ChangeColor.Cchange("lose");
+            }
+            else if (collision.gameObject.tag == "mysterybox")
+            {
+
+                gj.SetActive(true);
+                points.color = new Color(0.49f, 0.12f, 0.65f, 1);
+                //pointsp.SetBool("points", true);
+                int a = Random.Range(2, 20);
+                points.text = "+" + a;
+                Score.score += a;
+                ChangeColor.Cchange("mystery");
+            }
+            else if (collision.gameObject.tag == "blackbox")
+            {
+                points.text = "-10";
+                gj.SetActive(true);
+                points.color = new Color(0f, 0f, 0f, 1);
+                //pointsp.SetBool("points", true);
+
+                Score.score += -10;
+                ChangeColor.Cchange("black");
+            }
+            else if (collision.gameObject.tag == "bomb")
+            {
+                points.text = "BOOOOM";
+                Score.stop = true;
+                gj.SetActive(true);
+                points.color = new Color(0f, 0f, 0f, 1);
+                // pointsp.SetBool("points", true);
+                ChangeColor.Cchange("bomb");
+                Debug.Log("You Lost");
+
+                bigExplosion.Play();
+                StartCoroutine(MyCoroutine());
+
+
+
+
+                // Score.score = 0;
+            }
             
-            gj.SetActive(true);
-            points.color = new Color(0.49f, 0.12f, 0.65f, 1);
-            //pointsp.SetBool("points", true);
-            int a = Random.Range(2,20);
-            points.text = "+" + a;
-            Score.score += a;
-            ChangeColor.Cchange("mystery");
-        }
-        else if (collision.gameObject.tag == "blackbox")
-        {
-            points.text = "-10";
-            gj.SetActive(true);
-            points.color = new Color(0f, 0f, 0f, 1);
-            //pointsp.SetBool("points", true);
-           
-            Score.score += -10;
-            ChangeColor.Cchange("black");
-        }
-        else if (collision.gameObject.tag == "bomb")
-        {
-            points.text = "BOOOOM";
-            Score.stop = true;
-            gj.SetActive(true);
-            points.color = new Color(0f, 0f, 0f, 1);
-           // pointsp.SetBool("points", true);
-            ChangeColor.Cchange("bomb");
-            Debug.Log("You Lost");
-           
-            bigExplosion.Play();
-            StartCoroutine(MyCoroutine());
-            
+            else if (collision.gameObject.tag == "bluepotion")
+            {
+                points.text = "Shrink it dude";
+                gj.SetActive(true);
+                points.color = new Color(0.23f, 0.855f, 1f);
+                ChangeColor.Cchange("blue");
+                shreder.transform.localScale = new  Vector3(0.25f,0.25f,0.25f);
+                StartCoroutine(EffectDuration());
 
-           
 
-            // Score.score = 0;
+            }
+            else if (collision.gameObject.tag == "redpotion")
+            {
+                points.text = "Bigger Dude";
+                gj.SetActive(true);
+                points.color = new Color(1f, 0.25f, 0.388f);
+                ChangeColor.Cchange("red");
+                shreder.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                StartCoroutine(EffectDuration());
+
+
+            }
+            else
+            {
+                points.text = "+1";
+                gj.SetActive(true);
+                points.color = new Color(0.86f, 0.65f, 0.4f, 1);
+                //pointsp.SetBool("points", true);
+                ChangeColor.Cchange("box");
+                Score.score += 1;
+            }
+
+            Debug.Log("Touched");
+            BeltMovement.move = false;
+            BeltMovement.destroy = true;
+            Destroy(collision.gameObject); // maybe destroy the object
+            rp.RippleEffect();
+
+            ps.Play();
+            ps2.Play();
         }
-        else
-        {
-            points.text = "+1";
-            gj.SetActive(true);
-            points.color = new Color(0.86f, 0.65f, 0.4f, 1);
-            //pointsp.SetBool("points", true);
-            ChangeColor.Cchange("box");
-            Score.score += 1;
-        }
-       
-        Debug.Log("Touched");
-        BeltMovement.move = false;
-        BeltMovement.destroy = true;
-        Destroy(collision.gameObject); // maybe destroy the object
-        rp.RippleEffect();
-        
-        ps.Play();
-        ps2.Play();
     }
 
    

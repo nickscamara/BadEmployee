@@ -33,11 +33,24 @@ public class ChangeColor : MonoBehaviour {
         }
         else if (s.Equals("bomb"))
         {
-            ps.startColor = new Color(0f, 0f,0f, 1);
+            ps.startColor = new Color(0f, 0f, 0f, 1);
         }
         else if (s.Equals("black"))
         {
             ps.startColor = new Color(0f, 0f, 0f, 1);
+        }
+        else if (s.Equals("blue"))
+        {
+            ps.startColor = new Color(0.23f, 0.855f, 1f);
+        }
+        else if (s.Equals("red"))
+        {
+            ps.startColor = new Color(1f, 0.25f, 0.388f);
+        }
+        else if (s.Equals("double"))
+        {
+            ps.startColor = new Color(0f, 1f, 0.71f);
+
         }
         else
         {
