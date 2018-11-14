@@ -10,6 +10,9 @@ TagManager:
   - mysterybox
   - bomb
   - blackbox
+  - bluepotion
+  - redpotion
+  - double
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,8 @@ public class Score : MonoBehaviour {
     public SpriteRenderer spriteR;
     public static bool stop= false;
 
+    
+
     // Use this for initialization
     void Start () {
         

@@ -47,9 +47,9 @@ public class ChangeColor : MonoBehaviour {
         {
             ps.startColor = new Color(1f, 0.25f, 0.388f);
         }
-        else if (s.Equals("double"))
+        else if (s.Equals("green"))
         {
-            ps.startColor = new Color(0f, 1f, 0.71f);
+            ps.startColor = new Color(0f, 1f, 0.071f);
 
         }
         else
