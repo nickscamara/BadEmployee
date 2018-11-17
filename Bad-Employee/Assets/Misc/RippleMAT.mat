@@ -55,10 +55,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 3.741599e-16
+    - _Amount: 4.782968
     - _BumpScale: 1
-    - _CenterX: 302
-    - _CenterY: 91
+    - _CenterX: 156.9279
+    - _CenterY: 694.1693
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
