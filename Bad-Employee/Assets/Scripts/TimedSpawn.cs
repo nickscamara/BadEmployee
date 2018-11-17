@@ -11,7 +11,7 @@ public class TimedSpawn : MonoBehaviour
     public GameObject obj4;
     public GameObject obj5;
 
-    public bool stopSpawning = false;
+    public static bool stopSpawning = false;
     public static  float spawnTime = 1f;
     public static float spawnDelay = 2f;
 

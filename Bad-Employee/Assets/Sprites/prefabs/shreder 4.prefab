@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 61581916564734850}
   - component: {fileID: 114840085986795034}
   m_Layer: 0
-  m_Name: purple_shreder
+  m_Name: shreder 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13913,7 +13913,7 @@ SpriteRenderer:
   m_SortingLayerID: -1419553231
   m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 721e70663bbb9b1489408c0ea51c728c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a7a23fa80cbdea449e54e64e76b72f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

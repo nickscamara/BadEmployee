@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 61581916564734850}
   - component: {fileID: 114840085986795034}
   m_Layer: 0
-  m_Name: purple_shreder
+  m_Name: shreder 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
