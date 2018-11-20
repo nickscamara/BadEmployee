@@ -68,7 +68,7 @@ public class Shred : MonoBehaviour {
     IEnumerator DoublePointsDuration()
     {
 
-        Score.score *= 2;
+        
         yield return new WaitForSeconds(10);
         doublePoints = false;
 
